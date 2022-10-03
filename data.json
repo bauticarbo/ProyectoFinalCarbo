@@ -1,0 +1,9 @@
+[
+  { "prod": "remera", "precio": 2500, "id": 0 },
+  { "prod": "jean", "precio": 3600, "id": 1 },
+  { "prod": "bermuda", "precio": 3300, "id": 2 },
+  { "prod": "buzo", "precio": 4000, "id": 3 },
+  { "prod": "campera de jean", "precio": 7000, "id": 4 },
+  { "prod": "zapatillas", "precio": 11000, "id": 5 },
+  { "prod": "botines", "precio": 15000, "id": 6 }
+]
