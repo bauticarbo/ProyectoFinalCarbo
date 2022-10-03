@@ -1,3 +1,11 @@
+let carrito;
+
+let carritoFinal = document.getElementById('carritoFinal');
+
+let carritoEnLS = JSON.parse(localStorage.getItem('carritoLS'));
+
+let totalCarrito = 0;
+
 function traerProductos() {
   fetch('data.json')
     .then((res) => res.json())
@@ -56,15 +64,11 @@ function eliminarDelCarrito(id) {
     duration: 2000,
   }).showToast();
 }
+
 function renderCarrito() {
   carritoJSON = JSON.stringify(carrito);
   localStorage.setItem('carritoLS', carritoJSON);
 }
-let carrito;
-
-let carritoFinal = document.getElementById('carritoFinal');
-
-let carritoEnLS = JSON.parse(localStorage.getItem('carritoLS'));
 
 traerProductos();
 
@@ -73,8 +77,8 @@ if (carritoEnLS) {
   carritoFinal.innerHTML = `<p>Los productos que colocó en el carrito son: </p>`;
   for (let i = 0; i < carrito.length; i++) {
     carritoFinal.innerHTML += `<div>- ${carrito[i].prod}  $${carrito[i].precio} <button class="btn-eliminar"  onclick="eliminarDelCarrito(${carrito[i].id}); renderCarrito()">Eliminar del carrito</button></div>`;
-    /*carritoFinal.innerHTML += `<p> Sumando un total de $${totalCarrito}</p> <div><button class="btn-finalizar" id="btn-finalizar" onclick="">FINALIZAR COMPRA</button></div>`;*/
   }
+  carritoFinal.innerHTML += `<p> Sumando un total de $${totalCarrito}</p> <div><button class="btn-finalizar" id="btn-finalizar" onclick="">FINALIZAR COMPRA</button></div>`;
 } else {
   carrito = [];
   carritoFinal.innerHTML = '<b>Aún no tiene ningun producto en el carrito.</b>';
