@@ -76,6 +76,11 @@ function renderCarrito() {
 function vaciarCarrito() {
   carrito.splice(0);
   totalCarrito = carrito.reduce((acc, el) => acc + el.precio, 0);
+  carritoFinal.innerHTML = '<b>Aún no tiene ningun producto en el carrito.</b>';
+  Toastify({
+    text: 'Carrito Vaciado!',
+    duration: 2000,
+  }).showToast();
 }
 
 traerProductos();
